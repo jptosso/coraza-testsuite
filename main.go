@@ -85,12 +85,19 @@ var runCmd = &cobra.Command{
 			os.Exit(1)
 		}
 		files := fmt.Sprintf("%s/**/**/*.yaml", dir)
-		tests, err := filepath.Glob(files)
+		var tests []string
+		var err error
+		if strings.HasSuffix(dir, ".yaml") {
+			tests = []string{dir}
+		} else {
+			tests, err = filepath.Glob(files)
 
-		if err != nil {
-			panic(err)
-			//log.Fatal().Err(err)
+			if err != nil {
+				panic(err)
+				//log.Fatal().Err(err)
+			}
 		}
+
 		waf := coraza.NewWaf()
 		fmt.Printf("%d profiles were loaded\n", len(tests))
 		parser, _ := seclang.NewParser(waf)
