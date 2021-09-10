@@ -11,7 +11,6 @@ import (
 	"github.com/jptosso/coraza-waf/seclang"
 	"github.com/jptosso/coraza-waf/testing"
 	"github.com/spf13/cobra"
-	"go.uber.org/zap"
 )
 
 var (
@@ -93,7 +92,7 @@ var runCmd = &cobra.Command{
 			//log.Fatal().Err(err)
 		}
 		waf := coraza.NewWaf()
-		waf.Logger.Info(fmt.Sprintf("%d profiles were loaded", len(tests)), zap.String("path", dir))
+		fmt.Printf("%d profiles were loaded\n", len(tests))
 		parser, _ := seclang.NewParser(waf)
 		err = parser.FromFile(rules)
 		if err != nil {
@@ -119,13 +118,13 @@ var runCmd = &cobra.Command{
 			for _, s := range t.Stages {
 				err := s.Start(waf)
 				if err != nil {
-					failed = append(failed, t.Name)
+					failed = append(failed, fmt.Sprintf(`"%s"`, t.Name))
 				}
 				bar.Increment()
 			}
 		}
 		bar.Finish()
-		fmt.Printf("failed: [%s]\n", strings.Join(failed, ", "))
+		fmt.Printf("\nFailed: [%s]\n", strings.Join(failed, ", "))
 		fmt.Printf("Result: passed %d/%d\n", testcount-len(failed), testcount)
 	},
 }
