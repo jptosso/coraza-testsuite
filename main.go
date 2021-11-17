@@ -7,9 +7,11 @@ import (
 	"strings"
 
 	"github.com/cheggaaa/pb/v3"
-	coraza "github.com/jptosso/coraza-waf"
-	"github.com/jptosso/coraza-waf/seclang"
-	"github.com/jptosso/coraza-waf/testing"
+	_ "github.com/jptosso/coraza-libinjection"
+	_ "github.com/jptosso/coraza-pcre"
+	"github.com/jptosso/coraza-waf/v2"
+	"github.com/jptosso/coraza-waf/v2/seclang"
+	"github.com/jptosso/coraza-waf/v2/testing"
 	"github.com/spf13/cobra"
 )
 
