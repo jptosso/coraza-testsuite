@@ -1,4 +1,4 @@
-module github.com/jptosso/coraza-ftw
+module github.com/jptosso/coraza-testsuite
 
 go 1.16
 
