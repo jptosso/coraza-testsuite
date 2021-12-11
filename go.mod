@@ -3,9 +3,8 @@ module github.com/jptosso/coraza-ftw
 go 1.16
 
 require (
-	github.com/cheggaaa/pb/v3 v3.0.8
-	github.com/jptosso/coraza-libinjection v0.0.0-20211115024403-42cad9390da9
-	github.com/jptosso/coraza-pcre v0.0.0-20211115023002-00dcde8adb4e
-	github.com/jptosso/coraza-waf/v2 v2.0.0-alpha.1.0.20211117032307-bd5e1852af94
+	github.com/jptosso/coraza-libinjection v0.0.0-20211201204751-f462893b4e60
+	github.com/jptosso/coraza-pcre v0.0.0-20211201204829-1bea0f044896
+	github.com/jptosso/coraza-waf/v2 v2.0.0-beta.5.0.20211211174146-201d267fae49
 	github.com/spf13/cobra v1.2.1
 )
