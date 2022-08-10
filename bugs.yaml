@@ -1,0 +1,14 @@
+920240-*: Seems like a case-sensitive issue, the rule key expects a Content-Type, not content-type
+920380-1: ARGS proxy doesn't seem to be working
+942190-42: ARGS proxy doesn't seem to be working
+942522-7: ARGS proxy doesn't seem to be working
+951110-0: ARGS_COMBINED_SIZE doesn't seem to be working
+921180-*: Not working, I remember fixing this in v2
+934120-*: Regex doesn't seem to be working
+941310-2: Seems to be a problem with the text engine, I should evaluate literal hex values
+941310-3: Seems to be a problem with the text engine, I should evaluate literal hex values
+943110-4: Needs review, apparently it should match
+949110-4: Apparently it's working, I should check the test engine for log_contains
+951*: We should check response body handlers
+953*: We should check response body handlers
+954*: We should check response body handlers

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coraza Report</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h3>Test: {{.Test.Name}}</h3>
+        <small>{{.Args}}</small>
+
+        <h3>Test Profile</h3>
+        <pre style="border:1px solid #ddd;border-radius:1px;padding:3px;overflow-x:scroll;">
+{{.Yaml}}
+        </pre>
+        <h3>Errors</h3>
+        <ul>
+{{$parent := .}}
+{{range $err := .Errors}}
+            <li><strong>{{$err}}:</strong> {{$parent.FindRule $err}}</li>
+{{end}}
+        </ul>
+        <h3>Matched Rules</h3>
+        <div class="table-responsive" style="max-height:500px;">
+            <table class="table">
+                <tr>
+                    <th>ID</th>
+                    <th>Raw</th>
+                </tr>
+                <tbody>
+                    {{range $mr := .Transaction.MatchedRules}}
+                    <tr>
+                        <td>{{$mr.Rule.ID}}</td>
+                        <td>{{$mr.Rule.Raw}}</td>
+                    </tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </div>
+        <h3>Variables</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Variable</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range $key, $value := .Variables }}
+                <tr>
+                    <td>{{$value.VariableName}}</td>
+                    <td>{{$value.Key}}</td>
+                    <td>{{$value.Value}}</td>
+                </tr>
+                {{end}}
+        </table>
+        <h3>Debug Log</h3>
+        <pre style="height:500px;overflow-y:scroll;border:1px solid #ddd;">
+Not shown, too heavy.
+</pre>
+        <h3>Output Log</h3>
+        <pre style="height:500px;overflow-y:scroll;border:1px solid #ddd;">
+{{.PrettyLogs}}
+</pre>
+    </div>
+</body>
+
+</html>

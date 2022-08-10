@@ -1,0 +1,22 @@
+941110-6: Invalid URL encoding
+941130-14: Invalid Body URL encoding
+921150-1: Invalid URL encoding
+921160-1: Invalid URL encoding
+932130-9: Invalid URL encoding
+932140-3: Invalid URL encoding
+941130-2: Invalid URL encoding
+941130-4: Invalid URL encoding
+941130-6: Invalid URL encoding
+941130-9: Invalid URL encoding
+941130-10: Invalid URL encoding
+941130-11: Invalid URL encoding
+941130-12: Invalid URL encoding
+941130-16: Invalid URL encoding
+941280-2: Invalid URL encoding
+942100-10: Invalid URL encoding
+942100-13: Invalid URL encoding
+942151-1: Invalid URL encoding
+942490-17: Invalid URL encoding
+932115-7: Invalid URL encoding, % should be double encoded
+920181-1: This is Apache specific, we can receive content-length+chunked encoding, it's invalid though
+980170-2: This is a SecAction, it will always match for the engine
